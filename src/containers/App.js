@@ -1,23 +1,13 @@
-import React, {Component} from 'react'
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import React from 'react'
+import { connect } from 'react-redux'
+import Counter from '../components/counter'
+import { increment, decrement,incrementAsync } from "../redux/action-creators/count";
 
-import Login from './pages/login/login'
-import Admin from './pages/admin/admin'
 
 /*
 应用根组件
  */
-class App extends Component {
-
-  render() {
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route path='/login' component={Login}/>
-          <Route path='/' component={Admin}/>
-        </Switch>
-      </BrowserRouter>
-    )
-  }
-}
-export default App
+export default connect(
+  state => ({count:state.count}),
+  {increment,decrement,incrementAsync}
+)(Counter)
