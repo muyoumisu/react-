@@ -11,7 +11,7 @@
 import {
   DECREEMENT,
   INCREEMENT
-} from '../action-type'
+} from '../action-types'
 
 // 同步增加
 export const increment = (number) => ({type:INCREEMENT,data:number})
